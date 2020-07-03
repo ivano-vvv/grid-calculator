@@ -1,0 +1,23 @@
+.indicator-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.indicator {
+  width: 16px;
+  height: 16px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  border: 1px solid #cccccc;
+  background: #ebebeb;
+}
+
+.indicator-block__checkbox {
+  cursor: pointer;
+}
+
+.indicator-block__checkbox_active {
+  border-radius: 1px solid #1f7e1f;
+  background: #26b126;
+}

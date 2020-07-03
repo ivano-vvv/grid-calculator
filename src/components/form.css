@@ -1,0 +1,28 @@
+.form {
+  max-width: 600px;
+  width: 40vw;
+  margin: 0;
+}
+
+.form__input-block {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.form__input-block:last-child {
+  margin-bottom: 0;
+}
+
+.form__checkboxes-panel {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 32px;
+}
+
+.form__checkbox-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

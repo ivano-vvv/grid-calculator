@@ -1,3 +1,5 @@
+import calculateDividers from "../../calculations/calculateDividers";
+
 let initialState = {
   container: 1200,
   gutter: 24,
@@ -40,7 +42,11 @@ export function setNewGridConfig(gridConfig) {
 export default function gridConfigReducer(state = initialState, action) {
   switch (action.type) {
     case SET_NEW_GRID_CONFIG:
-      return { ...action.gridConfig };
+      return {
+        ...action.gridConfig,
+        columnDividers: calculateDividers(action.gridConfig).columnDividers,
+        gutterDividers: calculateDividers(action.gridConfig).gutterDividers,
+      };
     default:
       return state;
   }

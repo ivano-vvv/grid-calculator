@@ -33,6 +33,7 @@ const initialState = {
   },
   errorsMessage: "",
   isErrorVisible: false,
+  isBadParameters: false,
 };
 
 const CHANGE_MAX_WIDTH_VALUE = "CHANGE_MAX_WIDTH_VALUE";
@@ -147,6 +148,13 @@ export function checkIndicator(id) {
   return {
     type: CHECK_INDICATOR,
     id: Number(id),
+  };
+}
+
+const ERROR_BAD_PARAMETERS = "ERROR_BAD_PARAMETERS";
+export function errorBadParameters() {
+  return {
+    type: ERROR_BAD_PARAMETERS,
   };
 }
 
@@ -287,6 +295,14 @@ export default function FormReducer(state = initialState, action) {
             };
           } else return c;
         }),
+      };
+    case ERROR_BAD_PARAMETERS:
+      return {
+        ...state,
+        errorsMessage: state.isBadParameters
+          ? ""
+          : "Please, choose other parameters",
+        isBadParameters: !state.isBadParameters,
       };
     case SHOW_ERROR:
       return { ...state, isErrorVisible: true };

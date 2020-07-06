@@ -60,17 +60,6 @@ export default function Form(props) {
             onBlur={props.onBlur}
           />
         </div>
-        <div className="form__input-block">
-          <label className="text" htmlFor="margin">
-            Margin, px
-          </label>
-          <Input
-            name="margin"
-            value={props.values.margin}
-            onChange={props.onChange}
-            onBlur={props.onBlur}
-          />
-        </div>
       </div>
       <div className="form__checkboxes-panel">
         {props.values.checkboxes.map((d) => {

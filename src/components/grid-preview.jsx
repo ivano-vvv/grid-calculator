@@ -21,12 +21,5 @@ export default function GridPreview(props) {
     }
   }
 
-  return (
-    <div
-      className={"grid-preview " + props.className}
-      style={getPreviewStyle(props.gridConfig).previewStyle}
-    >
-      {columns}
-    </div>
-  );
+  return <div className={"grid-preview " + props.className}>{columns}</div>;
 }

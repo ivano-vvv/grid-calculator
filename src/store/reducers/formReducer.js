@@ -3,7 +3,6 @@ const initialState = {
   columns: 12,
   minGutter: 24,
   maxGutter: 0,
-  margin: 0,
   checkboxes: [
     { divider: 2, value: false },
     { divider: 3, value: false },
@@ -22,14 +21,12 @@ const initialState = {
     columns: false,
     minGutter: false,
     maxGutter: false,
-    margin: false,
   },
   notNumberErrors: {
     maxWidth: false,
     columns: false,
     minGutter: false,
     maxGutter: false,
-    margin: false,
   },
   errorsMessage: "",
   isErrorVisible: false,
@@ -67,19 +64,11 @@ export function changeMaxGutterValue(value) {
   };
 }
 
-const CHANGE_MARGIN_VALUE = "CHANGE_MARGIN_VALUE";
-export function changeMarginValue(value) {
-  return {
-    type: CHANGE_MARGIN_VALUE,
-    value,
-  };
-}
 
 const SET_MAX_VALUE_ERROR_ON_MAX_WIDTH = "SET_MAX_VALUE_ERROR_ON_MAX_WIDTH";
 const SET_MAX_VALUE_ERROR_ON_COLUMNS = "SET_MAX_VALUE_ERROR_ON_COLUMNS";
 const SET_MAX_VALUE_ERROR_ON_MIN_GUTTER = "SET_MAX_VALUE_ERROR_ON_MIN_GUTTER";
 const SET_MAX_VALUE_ERROR_ON_MAX_GUTTER = "SET_MAX_VALUE_ERROR_ON_MAX_GUTTER";
-const SET_MAX_VALUE_ERROR_ON_MARGIN = "SET_MAX_VALUE_ERROR_ON_MARGIN";
 export function switchMaxValueError(inputName) {
   switch (inputName) {
     case "maxWidth":
@@ -98,10 +87,6 @@ export function switchMaxValueError(inputName) {
       return {
         type: SET_MAX_VALUE_ERROR_ON_MAX_GUTTER,
       };
-    case "margin":
-      return {
-        type: SET_MAX_VALUE_ERROR_ON_MARGIN,
-      };
     default:
       break;
   }
@@ -114,7 +99,6 @@ const SET_NOT_A_NUMBER_ERROR_ON_MIN_GUTTER =
   "SET_NOT_A_NUMBER_ERROR_ON_MIN_GUTTER";
 const SET_NOT_A_NUMBER_ERROR_ON_MAX_GUTTER =
   "SET_NOT_A_NUMBER_ERROR_ON_MAX_GUTTER";
-const SET_NOT_A_NUMBER_ERROR_ON_MARGIN = "SET_NOT_A_NUMBER_ERROR_ON_MARGIN";
 export function switchNotNumberError(inputName) {
   switch (inputName) {
     case "maxWidth":
@@ -132,10 +116,6 @@ export function switchNotNumberError(inputName) {
     case "maxGutter":
       return {
         type: SET_NOT_A_NUMBER_ERROR_ON_MAX_GUTTER,
-      };
-    case "margin":
-      return {
-        type: SET_NOT_A_NUMBER_ERROR_ON_MARGIN,
       };
     default:
       break;
@@ -174,8 +154,6 @@ export default function FormReducer(state = initialState, action) {
       return { ...state, minGutter: action.value };
     case CHANGE_MAX_GUTTER_VALUE:
       return { ...state, maxGutter: action.value };
-    case CHANGE_MARGIN_VALUE:
-      return { ...state, margin: action.value };
     case SET_MAX_VALUE_ERROR_ON_MAX_WIDTH:
       return {
         ...state,
@@ -220,17 +198,6 @@ export default function FormReducer(state = initialState, action) {
           ? ""
           : "Gutter can't be wider than container",
       };
-    case SET_MAX_VALUE_ERROR_ON_MARGIN:
-      return {
-        ...state,
-        maxValueErrors: {
-          ...state.maxValueErrors,
-          margin: !state.maxValueErrors.margin,
-        },
-        errorsMessage: state.maxValueErrors.margin
-          ? ""
-          : "Margin can't be wider than half of the container",
-      };
     case SET_NOT_A_NUMBER_ERROR_ON_MAX_WIDTH:
       return {
         ...state,
@@ -266,15 +233,6 @@ export default function FormReducer(state = initialState, action) {
           maxGutter: !state.notNumberErrors.maxGutter,
         },
         errorsMessage: state.notNumberErrors.maxGutter ? "" : "Only numbers",
-      };
-    case SET_NOT_A_NUMBER_ERROR_ON_MARGIN:
-      return {
-        ...state,
-        maxValueErrors: {
-          ...state.notNumberErrors,
-          margin: !state.notNumberErrors.margin,
-        },
-        errorsMessage: state.notNumberErrors.margin ? "" : "Only numbers",
       };
     case CHECK_INDICATOR:
       return {

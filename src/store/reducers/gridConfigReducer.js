@@ -3,7 +3,6 @@ let initialState = {
   gutter: 24,
   column: 78,
   amountOfColumn: 12,
-  margin: 0,
   columnDividers: [
     { divider: 2, value: true },
     { divider: 3, value: true },

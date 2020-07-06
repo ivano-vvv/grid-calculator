@@ -3,7 +3,6 @@ import {
   changeColumnsValue,
   changeMinGutterValue,
   changeMaxGutterValue,
-  changeMarginValue,
   switchMaxValueError,
   switchNotNumberError,
   showError,
@@ -80,21 +79,6 @@ export default function getActionOfChangingValues(name, value, allValues) {
       return (dispatch) => {
         dispatch(hideError());
         dispatch(changeMaxGutterValue(value));
-      };
-    case "margin":
-      if (Number(value) >= allValues.maxWidth) {
-        return (dispatch) => {
-          dispatch(changeMarginValue(0));
-          dispatch(switchMaxValueError(name));
-          dispatch(showError());
-          setTimeout(dispatch, 2200, switchMaxValueError(name));
-          setTimeout(dispatch, 2000, switchMaxValueError(name));
-        };
-      }
-
-      return (dispatch) => {
-        dispatch(hideError());
-        dispatch(changeMarginValue(value));
       };
 
     default:

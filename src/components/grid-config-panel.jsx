@@ -25,11 +25,6 @@ export default function GridConfigPanel(props) {
         desc="gutter, px"
         className="grid-config-panel__result-value"
       />
-      <ResultValue
-        value={props.gridConfig.margin}
-        desc="margin, px"
-        className="grid-config-panel__result-value"
-      />
     </div>
   );
 }

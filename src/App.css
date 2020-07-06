@@ -1,0 +1,36 @@
+.app {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app__container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-grow: 2;
+}
+
+.app__form {
+  max-width: 600px;
+  width: 40vw;
+  margin: 0;
+}
+
+.app__form-section {
+  display: flex;
+  align-items: center;
+}
+
+.app__divider {
+  width: 1px;
+  height: 300px;
+  background: #ebebeb;
+  margin: 0 4vw;
+}
+
+.app__result-block {
+  flex-grow: 2;
+  max-width: 1000px;
+}

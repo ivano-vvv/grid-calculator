@@ -1,0 +1,14 @@
+.result-block {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.result-block__dividers-block {
+  align-self: flex-start;
+}
+
+.result-block__grid-preview {
+  flex-shrink: 2;
+}

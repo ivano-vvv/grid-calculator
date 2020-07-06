@@ -1,0 +1,23 @@
+.grid-preview {
+  width: 100%;
+  height: 30vh;
+  display: flex;
+  justify-content: flex-start;
+  overflow: hidden;
+  background: #f0f0f0;
+  border: 1px solid #aaaaaa;
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+
+.grid-preview__column {
+  height: 100%;
+  background: #ce7ec3;
+  border: 1px solid #b158a5;
+  border-top: none;
+  width: 100%;
+}
+
+.grid-preview__column:last-child {
+  margin-right: 0;
+}

@@ -1,0 +1,12 @@
+.grid-config-panel {
+  display: flex;
+  margin-top: 6vh;
+}
+
+.grid-config-panel__result-value {
+  margin-right: 32px;
+}
+
+.grid-config-panel__result-value:last-child {
+  margin-right: 0;
+}

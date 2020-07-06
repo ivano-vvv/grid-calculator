@@ -1,13 +1,56 @@
 import React from "react";
 import Form from "./form";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import getActionOfChangingValues from "../validation/normalizeInputValues";
+import { checkIndicator } from "../store/reducers/formReducer";
 
 export default function FormContainer(props) {
   const values = useSelector((state) => state.form);
+  const isErrorVisible = useSelector((state) => state.form.isErrorVisible);
+  const dispatch = useDispatch();
 
   function onCheckboxClick(e) {
     e.preventDefault();
+    dispatch(checkIndicator(e.target.name));
   }
 
-  return <Form className={props.className} values={values} onCheckboxClick={onCheckboxClick} />;
+  function onChange(e) {
+    dispatch(getActionOfChangingValues(e.target.name, e.target.value, values));
+  }
+
+  function onSubmitClick(e) {
+    e.preventDefault();
+    console.log(values);
+  }
+
+  function disableSubmitButton(values) {
+    if (
+      !checkValue(values.maxWidth) ||
+      !checkValue(values.columns) ||
+      !checkValue(values.minGutter)
+    ) {
+      return true;
+    } else return false;
+
+    function checkValue(value) {
+      if (!value) return false;
+
+      if (Number(value) === 0) return false;
+
+      return true;
+    }
+  }
+
+  return (
+    <Form
+      className={props.className}
+      values={values}
+      onCheckboxClick={onCheckboxClick}
+      onSubmitClick={onSubmitClick}
+      onChange={onChange}
+      errorsMessage={values.errorsMessage}
+      isErrorVisible={isErrorVisible}
+      isDisabled={disableSubmitButton(values)}
+    />
+  );
 }

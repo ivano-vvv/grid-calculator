@@ -9,15 +9,32 @@
   height: 16px;
   border-radius: 8px;
   margin-bottom: 8px;
-  border: 1px solid #cccccc;
+  border: 2px solid #cccccc;
   background: #ebebeb;
+  box-sizing: border-box;
 }
 
 .indicator-block__checkbox {
   cursor: pointer;
 }
 
-.indicator-block__checkbox_active {
-  border-radius: 1px solid #1f7e1f;
+.indicator-block__checkbox:focus {
+  box-shadow: 0 0 4px 0 #919191;
+}
+
+.indicator-block__indicator_active {
+  border: 2px solid #1f7e1f;
   background: #26b126;
+}
+
+.indicator-block__indicator_disabled {
+  border: 2px solid #7e1f1f;
+  background: #b12626;
+}
+
+.indicator-block__label {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }

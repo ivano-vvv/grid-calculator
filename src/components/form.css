@@ -1,7 +1,11 @@
 .form {
-  max-width: 600px;
-  width: 40vw;
-  margin: 0;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.form__inputs {
+  margin-bottom: 32px;
 }
 
 .form__input-block {
@@ -18,11 +22,56 @@
 .form__checkboxes-panel {
   display: flex;
   justify-content: space-between;
-  margin-top: 32px;
+  margin-bottom: 40px;
 }
 
 .form__checkbox-item {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.form__submit {
+  width: 142px;
+  height: 42px;
+  box-sizing: border-box;
+  background: #279bb5;
+  border: none;
+  border-radius: 3px;
+  font-size: 16px;
+  font-weight: 550;
+  letter-spacing: 0.015em;
+  text-transform: uppercase;
+  color: #ffffff;
+  cursor: pointer;
+  transition: background-color 0.1s ease-in;
+  outline: none;
+  align-self: flex-end;
+}
+
+.form__submit:disabled {
+  background: rgb(107, 107, 107);
+  cursor: default;
+}
+
+.form__submit:disabled:hover {
+  background: rgb(107, 107, 107);
+}
+
+.form__submit:focus {
+  box-shadow: 0 0 12px 0 #b3b3b3;
+}
+
+.form__submit:hover {
+  background: #0b90ad;
+}
+
+.form__submit:active {
+  background: #5ea9ba;
+}
+
+.form__error-label {
+  position: absolute;
+  right: 0;
+  top: -32px;
 }

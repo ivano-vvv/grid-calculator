@@ -1,4 +1,8 @@
 import calculateDividers from "../../calculations/calculateDividers";
+import {
+  calculateGridWithNewContainer,
+  calculateGridWithNewColumnAmount,
+} from "../../calculations/changeGrid";
 
 let initialState = {
   container: 1200,
@@ -39,6 +43,22 @@ export function setNewGridConfig(gridConfig) {
   return { type: SET_NEW_GRID_CONFIG, gridConfig };
 }
 
+const CHANGE_CONTAINER_WIDTH = "CHANGE_CONTAINER_WIDTH";
+export function changeContainerWidth(delta) {
+  return {
+    type: CHANGE_CONTAINER_WIDTH,
+    delta,
+  };
+}
+
+const CHANGE_COLUMNS_AMOUNT = "CHANGE_COLUMNS_AMOUNT";
+export function changeColumnAmount(delta) {
+  return {
+    type: CHANGE_COLUMNS_AMOUNT,
+    delta,
+  };
+}
+
 export default function gridConfigReducer(state = initialState, action) {
   switch (action.type) {
     case SET_NEW_GRID_CONFIG:
@@ -47,6 +67,33 @@ export default function gridConfigReducer(state = initialState, action) {
         columnDividers: calculateDividers(action.gridConfig).columnDividers,
         gutterDividers: calculateDividers(action.gridConfig).gutterDividers,
       };
+    case CHANGE_CONTAINER_WIDTH:
+      let newState__changeContainer = calculateGridWithNewContainer(
+        action.delta,
+        state
+      );
+
+      return {
+        ...newState__changeContainer,
+        columnDividers: calculateDividers(newState__changeContainer)
+          .columnDividers,
+        gutterDividers: calculateDividers(newState__changeContainer)
+          .gutterDividers,
+      };
+    case CHANGE_COLUMNS_AMOUNT: {
+      let newState__changeAmount = calculateGridWithNewColumnAmount(
+        action.delta,
+        state
+      );
+
+      return {
+        ...newState__changeAmount,
+        columnDividers: calculateDividers(newState__changeAmount)
+          .columnDividers,
+        gutterDividers: calculateDividers(newState__changeAmount)
+          .gutterDividers,
+      };
+    }
     default:
       return state;
   }

@@ -5,7 +5,10 @@ export default function ResultValue(props) {
   return (
     <div className={"result-value " + props.className}>
       <div className="result-value__buttons-block">
-        <button className="result-value__button result-value__button_reduce">
+        <button
+          className="result-value__button result-value__button_reduce"
+          onClick={props.onDecrease || null}
+        >
           <svg
             className="result-value__button-icon result-value__button-icon_reduce"
             id="Capa_1"
@@ -15,7 +18,10 @@ export default function ResultValue(props) {
             <path d="m275.565 361.679-223.897-223.896h-51.668l275.565 275.565 275.565-275.565h-51.668z" />
           </svg>
         </button>
-        <button className="result-value__button result-value__button_increase">
+        <button
+          className="result-value__button result-value__button_increase"
+          onClick={props.onIncrease || null}
+        >
           <svg
             className="result-value__button-icon result-value__button-icon_increase"
             id="Capa_1"

@@ -18,7 +18,7 @@ export default function calculateDividers(gridConfig) {
     return result;
 
     function checkDividedBy(num, divider) {
-      if (num % divider == 0) {
+      if (num % divider === 0) {
         return true;
       } else {
         return false;

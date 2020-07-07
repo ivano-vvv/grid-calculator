@@ -11,4 +11,5 @@
 
 .result-block__grid-preview {
   flex-shrink: 2;
+  flex-grow: 2;
 }

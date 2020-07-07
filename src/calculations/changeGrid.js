@@ -74,7 +74,7 @@ export function calculateGridWithNewColumnAmount(delta, gridConfig) {
   if (delta < 0) {
     return decreaseAmount(gridConfig);
   } else if (delta > 0) {
-    return increaseIncrease(gridConfig);
+    return increaseAmount(gridConfig);
   }
 
   function decreaseAmount(gridConfig) {
@@ -112,7 +112,7 @@ export function calculateGridWithNewColumnAmount(delta, gridConfig) {
     return gridConfig;
   }
 
-  function increaseIncrease(gridConfig) {
+  function increaseAmount(gridConfig) {
     let result = { ...gridConfig },
       tempColumn = 0,
       tempGutter = 0;
@@ -145,6 +145,78 @@ export function calculateGridWithNewColumnAmount(delta, gridConfig) {
     }
 
     return gridConfig;
+  }
+}
+
+export function calculateGridWithNewColumnWidth(delta, gridConfig) {
+  if (delta < 0) {
+    return decreaseColumn(gridConfig);
+  } else if (delta > 0) {
+    return increaseColumn(gridConfig);
+  }
+
+  function decreaseColumn(gridConfig) {
+    let result = { ...gridConfig };
+
+    result.column = gridConfig.column - 1;
+
+    result.container = calculateContainer(
+      result.column,
+      result.gutter,
+      result.amountOfColumn
+    );
+
+    return result;
+  }
+
+  function increaseColumn(gridConfig) {
+    let result = { ...gridConfig };
+
+    result.column = gridConfig.column + 1;
+
+    result.container = calculateContainer(
+      result.column,
+      result.gutter,
+      result.amountOfColumn
+    );
+
+    return result;
+  }
+}
+
+export function calculateGridWithNewGutter(delta, gridConfig) {
+  if (delta < 0) {
+    return decreaseGutter(gridConfig);
+  } else if (delta > 0) {
+    return increaseGutter(gridConfig);
+  }
+
+  function decreaseGutter(gridConfig) {
+    let result = { ...gridConfig };
+
+    result.gutter = gridConfig.gutter - 1;
+
+    result.container = calculateContainer(
+      result.column,
+      result.gutter,
+      result.amountOfColumn
+    );
+
+    return result;
+  }
+
+  function increaseGutter(gridConfig) {
+    let result = { ...gridConfig };
+
+    result.gutter = gridConfig.gutter + 1;
+
+    result.container = calculateContainer(
+      result.column,
+      result.gutter,
+      result.amountOfColumn
+    );
+
+    return result;
   }
 }
 
@@ -196,4 +268,8 @@ function calculateColumn(container, gutter, amount) {
 
 function calculateGutter(container, column, amount) {
   return (container - column * amount) / (amount - 1);
+}
+
+function calculateContainer(column, gutter, amount) {
+  return amount * column + amount * gutter - gutter;
 }

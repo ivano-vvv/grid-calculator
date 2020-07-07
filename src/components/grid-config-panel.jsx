@@ -20,11 +20,15 @@ export default function GridConfigPanel(props) {
         className="grid-config-panel__result-value"
       />
       <ResultValue
+        onDecrease={props.functionsOfChange.decreaseColumnWidth}
+        onIncrease={props.functionsOfChange.increaseColumnWidth}
         value={props.gridConfig.column}
         desc="column, px"
         className="grid-config-panel__result-value"
       />
       <ResultValue
+        onDecrease={props.functionsOfChange.decreaseGutter}
+        onIncrease={props.functionsOfChange.increaseGutter}
         value={props.gridConfig.gutter}
         desc="gutter, px"
         className="grid-config-panel__result-value"

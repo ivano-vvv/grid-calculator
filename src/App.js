@@ -14,7 +14,7 @@ import ResultBlock from "./components/result-block";
 function App() {
   return (
     <div className="app">
-      <Header />
+      <Header className="app__header" />
       <div className="container app__container">
         <div className="app__form-section">
           <FormContainer className="app__form" />

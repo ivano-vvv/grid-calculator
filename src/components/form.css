@@ -75,3 +75,9 @@
   right: 0;
   top: -32px;
 }
+
+@media only screen and (max-width: 950px) {
+  .form__submit {
+    align-self: center;
+  }
+}

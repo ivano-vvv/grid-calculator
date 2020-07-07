@@ -36,3 +36,43 @@
   flex-grow: 2;
   height: 76vh;
 }
+
+@media only screen and (max-width: 950px) {
+  .app__container {
+    flex-direction: column;
+    flex-grow: 0;
+    justify-content: flex-start;
+  }
+  .app__divider {
+    display: none;
+  }
+  .app__header {
+    flex-shrink: 0;
+    margin-bottom: 100px;
+  }
+  .app__result-block {
+    max-width: initial;
+    width: 100%;
+    flex-grow: 1;
+    height: 400px;
+    margin-bottom: 100px;
+  }
+  .app__form {
+    max-width: 400px;
+    width: inherit;
+    margin: 0 auto;
+  }
+  .app__form-section {
+    width: 100%;
+    margin-bottom: 80px;
+  }
+}
+
+@media only screen and (max-height: 500px) {
+  .app {
+    height: 500px;
+  }
+  .app__result-block {
+    height: inherit;
+  }
+}

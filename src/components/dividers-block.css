@@ -31,3 +31,13 @@
 .dividers-block__indicator:last-child {
   margin-right: 0;
 }
+
+@media only screen and (max-width: 950px) {
+  .dividers-block__group {
+    width: 100%;
+    max-width: 400px;
+  }
+  .dividers-block__indicators-panel {
+    justify-content: space-between;
+  }
+}

@@ -33,7 +33,7 @@ export default function ResultValue(props) {
         </button>
       </div>
       <h2 className="result-value__value h2">{props.value}</h2>
-      <p className="result-block__desc">{props.desc}</p>
+      <p className="result-block__desc text">{props.desc}</p>
     </div>
   );
 }

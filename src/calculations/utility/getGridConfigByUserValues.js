@@ -1,5 +1,5 @@
 export default function getGridConfigByUserValues(userValues) {
-  let maxW = userValues.maxContainerWidth - userValues.margin,
+  let maxW = userValues.maxContainerWidth,
     A = userValues.amountOfColumns,
     minG = userValues.minGutterWidth,
     maxG = userValues.maxGutterWidth,

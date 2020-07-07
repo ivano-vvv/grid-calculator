@@ -3,6 +3,7 @@ import Form from "./form";
 import { useSelector, useDispatch } from "react-redux";
 import getActionOfChangingValues from "../validation/normalizeInputValues";
 import { checkIndicator } from "../store/reducers/formReducer";
+import calculateGrid from "../calculations/calculateGrid";
 
 export default function FormContainer(props) {
   const values = useSelector((state) => state.form);
@@ -20,7 +21,7 @@ export default function FormContainer(props) {
 
   function onSubmitClick(e) {
     e.preventDefault();
-    console.log(values);
+    dispatch(calculateGrid(values));
   }
 
   function disableSubmitButton(values) {

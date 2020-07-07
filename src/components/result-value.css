@@ -48,3 +48,12 @@
 .result-value__value {
   margin-bottom: 4px;
 }
+
+@media only screen and (max-width: 400px) {
+  .result-value {
+    min-width: 64px;
+  }
+  .result-block__desc {
+    text-align: center;
+  }
+}

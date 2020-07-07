@@ -10,3 +10,12 @@
 .grid-config-panel__result-value:last-child {
   margin-right: 0;
 }
+
+@media only screen and (max-width: 400px) {
+  .grid-config-panel__result-value {
+    margin-right: 0;
+  }
+  .grid-config-panel {
+    justify-content: space-between;
+  }
+}

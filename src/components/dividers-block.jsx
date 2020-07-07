@@ -5,7 +5,7 @@ import "./dividers-block.css";
 export default function DividersBlock(props) {
   return (
     <div className={"dividers-block " + props.className}>
-      <div className="dividers-block__column">
+      <div className="dividers-block__column dividers-block__group">
         <p className="text dividers-block__label">
           Columns width can be divided by:
         </p>
@@ -22,7 +22,7 @@ export default function DividersBlock(props) {
           })}
         </div>
       </div>
-      <div className="dividers-block__gutter">
+      <div className="dividers-block__gutter dividers-block__group">
         <p className="text dividers-block__label">
           Gutters width can be divided by:
         </p>

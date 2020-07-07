@@ -1,6 +1,6 @@
 .grid-config-panel {
   display: flex;
-  margin-top: 6vh;
+  margin-bottom: 3vh;
 }
 
 .grid-config-panel__result-value {

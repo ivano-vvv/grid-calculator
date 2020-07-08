@@ -9,7 +9,7 @@ export default function Form(props) {
       <span
         className={
           props.isErrorVisible
-            ? "form__error-label form__error-label_max-width"
+            ? "form__error-label"
             : "hidden"
         }
       >
@@ -52,6 +52,7 @@ export default function Form(props) {
         <div className="form__input-block">
           <label className="text" htmlFor="maxGutter">
             Max. gutter width, px
+            <span className="form__label_optional">Optional</span>
           </label>
           <Input
             name="maxGutter"
